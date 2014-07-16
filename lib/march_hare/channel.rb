@@ -183,8 +183,8 @@ module MarchHare
     # @private
     def automatically_recover(session, java_connection)
       @delegate.close rescue nil if @delegate
-      jch = java_connection.create_channel(id)
-      raise "com.rabbitmq.client.Channel is nil (ID is already in use)" if jch.nil?
+      jch = java_connection.create_channel #(id)
+      raise "com.rabbitmq.client.Channel is nil (ID #{id} is already in use?)" if jch.nil?
 
       self.revive_with(jch)
       self.recover_shutdown_hooks
