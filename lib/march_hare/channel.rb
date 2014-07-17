@@ -247,7 +247,7 @@ module MarchHare
           x.recover_from_network_failure
         rescue Exception => e
           # TODO: logger
-          $stderr.puts "Caught exception when recovering exchange #{x.name} => #{e.message}\n#{e.backtrace.join("\n\t")}"
+          $stderr.puts "Caught exception when recovering exchange #{x.name} => #{e.inspect}\n#{e.backtrace.join("\n\t")}"
         end
       end
     end
@@ -260,7 +260,7 @@ module MarchHare
           q.recover_from_network_failure
         rescue Exception => e
           # TODO: logger
-          $stderr.puts "Caught exception when recovering queue #{q.name} => #{e.message}\n#{e.backtrace.join("\n\t")}"
+          $stderr.puts "Caught exception when recovering queue #{q.name} => #{e.inspect}\n#{e.backtrace.join("\n\t")}"
         end
       end
     end
@@ -274,7 +274,7 @@ module MarchHare
           c.recover_from_network_failure
         rescue Exception => e
           # TODO: logger
-          $stderr.puts "Caught exception when recovering consumer #{c.consumer_tag} => #{e.message}\n#{e.backtrace.join("\n\t")}"
+          $stderr.puts "Caught exception when recovering consumer #{c.consumer_tag} => #{e.inspect}\n#{e.backtrace.join("\n\t")}"
         end
       end
     end
